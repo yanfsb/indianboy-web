@@ -749,7 +749,7 @@ fn page(site: &Site, title: &str, meta: PageMeta<'_>, body: &str) -> String {
 }
 
 fn giscus() -> String {
-    r#"<section class="comments" aria-label="Comments"><h2>Comments</h2><script src="https://giscus.app/client.js" data-repo="yan-pi/indianboy-web" data-repo-id="R_kgDOUVV41A" data-category="Blog Comments" data-category-id="DIC_kwDOUVV41M4DFeb4" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async></script></section>"#.to_owned()
+    r#"<section class="comments" aria-label="Comments"><h2>Comments</h2><script src="https://giscus.app/client.js" data-repo="yanfsb/indianboy-web" data-repo-id="R_kgDOUVV41A" data-category="Blog Comments" data-category-id="DIC_kwDOUVV41M4DFeb4" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async></script></section>"#.to_owned()
 }
 
 fn rss_date(value: &str) -> String {
@@ -870,10 +870,10 @@ mod tests {
     #[test]
     fn uses_the_canonical_giscus_repository() {
         let config = giscus();
-        assert!(config.contains("data-repo=\"yan-pi/indianboy-web\""));
+        assert!(config.contains("data-repo=\"yanfsb/indianboy-web\""));
+        assert!(!config.contains("data-repo=\"yan-pi/indianboy-web\""));
         assert!(config.contains("data-repo-id=\"R_kgDOUVV41A\""));
         assert!(config.contains("data-category-id=\"DIC_kwDOUVV41M4DFeb4\""));
-        assert!(!config.contains("data-repo=\"sollus-labs/indianboy\""));
     }
 
     #[test]
